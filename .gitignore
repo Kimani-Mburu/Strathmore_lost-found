@@ -1,0 +1,93 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+.venv
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.project
+.pydevproject
+.settings/
+
+# Flask
+instance/
+.webassets-cache
+*.db
+*.sqlite
+*.sqlite3
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+instance/
+*.env
+.env
+.env.local
+.env.*.local
+
+# Uploads
+backend/app/uploads/*
+!backend/app/uploads/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+*.log
+*.pot
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Production/Sensitive
+.env.production
+config.local.py
+secrets/
+credentials/
+*.pem
+*.key
+
+# Node (if using any frontend build tools)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+temp/
+tmp/
+
+# Development files
+test-login.html
+*.test.js
+debug/

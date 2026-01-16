@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strathmore Lost & Found - Find Your Items</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="homepage">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <h1>🔍 Strathmore Lost & Found</h1>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/browse-lost">Browse Lost</a></li>
+                <li><a href="/browse-found">Browse Found</a></li>
+                <li><a href="/report" id="reportLink" style="display:none;">Report Item</a></li>
+                <li><a href="/login" id="loginLink">Login</a></li>
+                <li><a href="/register" id="registerLink">Register</a></li>
+                <li><a href="#" id="logoutLink" style="display:none;">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="container hero-section">
+        <h1>Welcome to Strathmore Lost & Found</h1>
+        <p>Help the university community recover lost items and reunite found belongings with their owners</p>
+        <div class="hero-buttons">
+            <a href="/browse-lost" class="btn btn-secondary btn-large">❌ Browse Lost Items</a>
+            <a href="/browse-found" class="btn btn-primary btn-large">✅ Browse Found Items</a>
+            <a href="/report" class="btn btn-outline btn-large" id="reportBtn" style="display:none;">📸 Report an Item</a>
+        </div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="container search-section">
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search for items... (category, location, description)">
+            <button id="searchBtn" class="btn btn-primary">Search</button>
+        </div>
+    </div>
+
+    <!-- Dashboard Stats -->
+    <div class="container">
+        <h2>📊 Lost & Found Dashboard</h2>
+        <div class="dashboard-stats">
+            <div class="stat-card">
+                <div class="stat-icon">📦</div>
+                <div class="stat-content">
+                    <h3 id="totalItems">0</h3>
+                    <p>Total Items</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-content">
+                    <h3 id="reclaimedItems">0</h3>
+                    <p>Successfully Reclaimed</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">❌</div>
+                <div class="stat-content">
+                    <h3 id="lostItems">0</h3>
+                    <p>Lost Items</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🎯</div>
+                <div class="stat-content">
+                    <h3 id="successRate">0%</h3>
+                    <p>Recovery Rate</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Department Stats -->
+    <div class="container">
+        <h2>📍 Items by Department/Location</h2>
+        <div class="department-stats" id="departmentStats">
+            <!-- Will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Recent Items -->
+    <div class="container">
+        <h2>🆕 Recently Added Items</h2>
+        <div class="items-grid" id="recentItems">
+            <!-- Will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="container features-section">
+        <h2>✨ How It Works</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+            <div class="feature-card">
+                <h3>📸 Report Lost Item</h3>
+                <p>Upload a photo and details of your lost item to help others identify it</p>
+            </div>
+            <div class="feature-card">
+                <h3>🔎 Browse Items</h3>
+                <p>Search through all found and lost items in our comprehensive database</p>
+            </div>
+            <div class="feature-card">
+                <h3>🎁 Claim Your Item</h3>
+                <p>Found your item? Claim it and our admins will verify ownership</p>
+            </div>
+            <div class="feature-card">
+                <h3>✅ Get Verified</h3>
+                <p>Admins verify ownership details before handing over your item</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Strathmore University Digital Lost & Found. All rights reserved.</p>
+        <p>Helping our community, one item at a time.</p>
+    </footer>
+
+    <script src="/static/js/api-client.js"></script>
+    <script src="/static/js/auth.js"></script>
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

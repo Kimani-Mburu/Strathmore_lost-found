@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard - Strathmore Lost & Found</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <h1>🔍 Strathmore Lost & Found</h1>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/my-dashboard">My Dashboard</a></li>
+                <li><a href="/browse">Browse Items</a></li>
+                <li><a href="/report" id="reportLink">Report Item</a></li>
+                <li><a href="#" id="logoutLink">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="message"></div>
+        <div class="dashboard-header">
+            <h2>👤 My Dashboard</h2>
+            <p id="welcomeMessage"></p>
+        </div>
+
+        <div class="dashboard-tabs">
+            <button class="dashboard-tab-btn active" onclick="switchDashboardTab('my-items')">
+                📦 My Reported Items (<span id="itemsCount">0</span>)
+            </button>
+            <button class="dashboard-tab-btn" onclick="switchDashboardTab('my-claims')">
+                🏷️ My Claims (<span id="claimsCount">0</span>)
+            </button>
+        </div>
+
+        <!-- My Items Tab -->
+        <div id="my-items-tab" class="dashboard-tab-content active">
+            <div id="myItemsList" class="items-list">
+                <!-- User's reported items will load here -->
+            </div>
+        </div>
+
+        <!-- My Claims Tab -->
+        <div id="my-claims-tab" class="dashboard-tab-content">
+            <div id="myClaimsList" class="claims-list">
+                <!-- User's claims will load here -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Strathmore University Digital Lost & Found. All rights reserved.</p>
+    </footer>
+
+    <script src="/static/js/api-client.js"></script>
+    <script src="/static/js/auth.js"></script>
+    <script src="/static/js/my-dashboard.js"></script>
+</body>
+</html>

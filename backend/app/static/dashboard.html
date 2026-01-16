@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Strathmore Lost & Found</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <h1>🔍 Strathmore Lost & Found</h1>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/browse-lost">Browse Lost</a></li>
+                <li><a href="/browse-found">Browse Found</a></li>
+                <li><a href="/report" id="reportLink" style="display:none;">Report Item</a></li>
+                <li><a href="/admin-dashboard" id="adminLink" style="display:none;">Admin</a></li>
+                <li><a href="/login" id="loginLink">Login</a></li>
+                <li><a href="/register" id="registerLink">Register</a></li>
+                <li><a href="#" id="logoutLink" style="display:none;">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>📊 Dashboard & Statistics</h1>
+        <p>Overall system activity and recovery metrics</p>
+
+        <!-- Main Stats -->
+        <h2>Key Metrics</h2>
+        <div class="dashboard-stats">
+            <div class="stat-card">
+                <div class="stat-icon">📦</div>
+                <div class="stat-content">
+                    <h3 id="totalItems">0</h3>
+                    <p>Total Items</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-content">
+                    <h3 id="reclaimedItems">0</h3>
+                    <p>Successfully Reclaimed</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">❌</div>
+                <div class="stat-content">
+                    <h3 id="lostItems">0</h3>
+                    <p>Lost Items</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🎯</div>
+                <div class="stat-content">
+                    <h3 id="successRate">0%</h3>
+                    <p>Recovery Rate</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Department Stats -->
+        <h2>📍 Items by Location</h2>
+        <div class="department-stats" id="departmentStats"></div>
+
+        <!-- Category Breakdown -->
+        <h2>📁 Items by Category</h2>
+        <div class="department-stats" id="categoryStats"></div>
+
+        <!-- Status Breakdown -->
+        <h2>🔄 Item Status Distribution</h2>
+        <div class="status-breakdown" id="statusBreakdown"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Strathmore University Digital Lost & Found.</p>
+    </footer>
+
+    <script src="/static/js/api-client.js"></script>
+    <script src="/static/js/auth.js"></script>
+    <script src="/static/js/page-dashboard.js"></script>
+</body>
+</html>

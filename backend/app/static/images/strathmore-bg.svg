@@ -1,0 +1,51 @@
+<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3c72;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2a5298;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Main background -->
+  <rect width="1920" height="1080" fill="url(#bgGradient)"/>
+  
+  <!-- Sky effect -->
+  <rect width="1920" height="600" fill="#87CEEB" opacity="0.3"/>
+  
+  <!-- Building silhouettes -->
+  <g opacity="0.6">
+    <!-- Left building -->
+    <rect x="0" y="500" width="300" height="580" fill="#1a1a2e"/>
+    <rect x="30" y="520" width="40" height="50" fill="#4a90e2" opacity="0.8"/>
+    <rect x="80" y="520" width="40" height="50" fill="#4a90e2" opacity="0.8"/>
+    <rect x="130" y="520" width="40" height="50" fill="#4a90e2" opacity="0.8"/>
+    <rect x="180" y="520" width="40" height="50" fill="#4a90e2" opacity="0.8"/>
+    <rect x="230" y="520" width="40" height="50" fill="#4a90e2" opacity="0.8"/>
+    
+    <!-- Center tall building -->
+    <rect x="600" y="300" width="250" height="780" fill="#16213e"/>
+    <polygon points="600,300 750,100 900,300" fill="#0f3460"/>
+    <rect x="630" y="340" width="35" height="45" fill="#4a90e2" opacity="0.7"/>
+    <rect x="680" y="340" width="35" height="45" fill="#4a90e2" opacity="0.7"/>
+    <rect x="730" y="340" width="35" height="45" fill="#4a90e2" opacity="0.7"/>
+    <rect x="780" y="340" width="35" height="45" fill="#4a90e2" opacity="0.7"/>
+    
+    <!-- Right building -->
+    <rect x="1350" y="450" width="350" height="630" fill="#1a1a2e"/>
+    <rect x="1380" y="480" width="40" height="50" fill="#4a90e2" opacity="0.8"/>
+    <rect x="1430" y="480" width="40" height="50" fill="#4a90e2" opacity="0.8"/>
+    <rect x="1480" y="480" width="40" height="50" fill="#4a90e2" opacity="0.8"/>
+    <rect x="1530" y="480" width="40" height="50" fill="#4a90e2" opacity="0.8"/>
+    <rect x="1580" y="480" width="40" height="50" fill="#4a90e2" opacity="0.8"/>
+    <rect x="1630" y="480" width="40" height="50" fill="#4a90e2" opacity="0.8"/>
+  </g>
+  
+  <!-- Strathmore text -->
+  <text x="960" y="250" font-size="80" font-weight="bold" fill="white" text-anchor="middle" font-family="Arial, sans-serif" letter-spacing="2">
+    STRATHMORE UNIVERSITY
+  </text>
+  <text x="960" y="350" font-size="40" fill="#87CEEB" text-anchor="middle" font-family="Arial, sans-serif">
+    Digital Lost & Found System
+  </text>
+</svg>

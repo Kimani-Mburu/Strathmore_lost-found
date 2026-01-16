@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Items - Strathmore Lost & Found</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <h1>🔍 Strathmore Lost & Found</h1>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/browse">Browse Items</a></li>
+                <li><a href="/report" id="reportLink" style="display:none;">Report Item</a></li>
+                <li><a href="/login" id="loginLink">Login</a></li>
+                <li><a href="/register" id="registerLink">Register</a></li>
+                <li><a href="#" id="logoutLink" style="display:none;">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Browse Items</h2>
+        
+        <div class="filters">
+            <select id="itemType">
+                <option value="">All Items</option>
+                <option value="lost">Lost Items</option>
+                <option value="found">Found Items</option>
+            </select>
+            <select id="category">
+                <option value="">All Categories</option>
+                <option value="electronics">Electronics</option>
+                <option value="documents">Documents</option>
+                <option value="accessories">Accessories</option>
+                <option value="personal">Personal Items</option>
+                <option value="clothing">Clothing</option>
+            </select>
+            <button class="btn btn-secondary" onclick="applyFilters()">Filter</button>
+        </div>
+
+        <div id="itemsList" class="items-grid">
+            <!-- Items will be loaded here -->
+        </div>
+
+        <div id="pagination">
+            <!-- Pagination controls -->
+        </div>
+    </div>
+
+    <script src="/static/js/api-client.js"></script>
+    <script src="/static/js/browse.js"></script>
+</body>
+</html>

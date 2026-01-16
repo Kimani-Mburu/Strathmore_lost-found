@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Strathmore Lost & Found</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <h1>🔍 Strathmore Lost & Found</h1>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/admin-dashboard">Dashboard</a></li>
+                <li><a href="/browse">Browse Items</a></li>
+                <li><a href="#" id="logoutLink" style="display:none;">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div id="message"></div>
+        <div class="admin-header">
+            <h2>👨‍💼 Admin Dashboard</h2>
+            <p>Verify and manage lost & found items</p>
+        </div>
+
+        <div class="admin-tabs">
+            <button class="admin-tab-btn active" onclick="switchTab('pending')">
+                ⏳ Pending Items (<span id="pendingCount">0</span>)
+            </button>
+            <button class="admin-tab-btn" onclick="switchTab('verified')">
+                ✅ Verified Items
+            </button>
+            <button class="admin-tab-btn" onclick="switchTab('claims')">
+                🏷️ Pending Claims (<span id="claimsCount">0</span>)
+            </button>
+            <button class="admin-tab-btn" onclick="switchTab('claimed')">
+                🎁 Claimed Items
+            </button>
+            <button class="admin-tab-btn" onclick="switchTab('rejected')">
+                ❌ Rejected Items
+            </button>
+        </div>
+
+        <!-- Pending Items Tab -->
+        <div id="pending-tab" class="admin-tab-content active">
+            <div id="pendingItemsList" class="admin-items-list">
+                <!-- Pending items will load here -->
+            </div>
+        </div>
+
+        <!-- Verified Items Tab -->
+        <div id="verified-tab" class="admin-tab-content">
+            <div id="verifiedItemsList" class="admin-items-list">
+                <!-- Verified items will load here -->
+            </div>
+        </div>
+
+        <!-- Pending Claims Tab -->
+        <div id="claims-tab" class="admin-tab-content">
+            <div id="pendingClaimsList" class="admin-claims-list">
+                <!-- Pending claims will load here -->
+            </div>
+        </div>
+
+        <!-- Claimed Items Tab -->
+        <div id="claimed-tab" class="admin-tab-content">
+            <div id="claimedItemsList" class="admin-items-list">
+                <!-- Claimed items will load here -->
+            </div>
+        </div>
+
+        <!-- Rejected Items Tab -->
+        <div id="rejected-tab" class="admin-tab-content">
+            <div id="rejectedItemsList" class="admin-items-list">
+                <!-- Rejected items will load here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Item Details Modal -->
+    <div id="itemModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div id="modalItemDetails">
+                <!-- Item details will load here -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Strathmore University Digital Lost & Found. All rights reserved.</p>
+    </footer>
+
+    <script src="/static/js/api-client.js"></script>
+    <script src="/static/js/auth.js"></script>
+    <script src="/static/js/admin-dashboard.js"></script>
+</body>
+</html>

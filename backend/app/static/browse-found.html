@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Found Items - Strathmore Lost & Found</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <h1>🔍 Strathmore Lost & Found</h1>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/browse-lost">Browse Lost</a></li>
+                <li><a href="/browse-found">Browse Found</a></li>
+                <li><a href="/report" id="reportLink" style="display:none;">Report Item</a></li>
+                <li><a href="/login" id="loginLink">Login</a></li>
+                <li><a href="/register" id="registerLink">Register</a></li>
+                <li><a href="#" id="logoutLink" style="display:none;">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>✅ Browse Found Items</h1>
+        <p>Is one of these items yours? Claim it today!</p>
+
+        <!-- Filters -->
+        <div class="filters">
+            <select id="categoryFilter" onchange="applyFilters()">
+                <option value="">All Categories</option>
+                <option value="electronics">Electronics</option>
+                <option value="clothing">Clothing</option>
+                <option value="documents">Documents</option>
+                <option value="accessories">Accessories</option>
+                <option value="other">Other</option>
+            </select>
+            <select id="locationFilter" onchange="applyFilters()">
+                <option value="">All Locations</option>
+                <option value="main campus">Main Campus</option>
+                <option value="library">Library</option>
+                <option value="students center">Students Center</option>
+                <option value="dining hall">Dining Hall</option>
+            </select>
+        </div>
+
+        <!-- Items Grid -->
+        <div id="itemsList" class="items-grid">
+            <!-- Items will be loaded here -->
+        </div>
+
+        <!-- Pagination -->
+        <div id="pagination"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Strathmore University Digital Lost & Found.</p>
+    </footer>
+
+    <script src="/static/js/api-client.js"></script>
+    <script src="/static/js/auth.js"></script>
+    <script src="/static/js/browse-found.js"></script>
+</body>
+</html>
