@@ -70,37 +70,57 @@ python run.py
 ## 🏗️ Project Structure
 
 ```
-lostnfound/
+Strathmore_lost-found/
 ├── backend/
 │   ├── app/
 │   │   ├── __init__.py              # Flask app factory & routes
 │   │   ├── models/                  # Database models
-│   │   │   ├── user.py
-│   │   │   ├── item.py
-│   │   │   └── claim.py
+│   │   │   ├── user.py              # User model
+│   │   │   ├── item.py              # Lost/Found item model
+│   │   │   └── claim.py             # Item claim model
 │   │   ├── routes/                  # API endpoints
-│   │   │   ├── auth_routes.py       # Authentication
-│   │   │   ├── item_routes.py       # Items & claims
-│   │   │   └── admin_routes.py      # Admin functions
-│   │   ├── utils/                   # Utilities
-│   │   │   ├── auth.py              # Token generation & verification
-│   │   │   └── validators.py        # Email & file validation
-│   │   ├── static/                  # Frontend files
-│   │   │   ├── html files
+│   │   │   ├── auth_routes.py       # Authentication endpoints
+│   │   │   ├── item_routes.py       # Items & claims endpoints
+│   │   │   └── admin_routes.py      # Admin-only endpoints
+│   │   ├── static/                  # Frontend files (HTML, CSS, JS)
 │   │   │   ├── css/
-│   │   │   └── js/
+│   │   │   ├── js/
+│   │   │   ├── images/
+│   │   │   └── *.html               # Frontend pages
 │   │   ├── uploads/                 # User-uploaded images
+│   │   ├── utils/                   # Utility functions
+│   │   │   ├── auth.py              # Token & authentication utilities
+│   │   │   ├── validators.py        # Input validation
+│   │   │   └── security.py          # Security utilities
 │   │   └── instance/                # Database file (git-ignored)
+│   ├── tests/                       # Test suite
+│   │   ├── test_auth.py
+│   │   ├── test_items.py
+│   │   ├── test_admin.py
+│   │   ├── test_models.py
+│   │   ├── test_utils.py
+│   │   ├── test_integration.py
+│   │   └── conftest.py
 │   ├── run.py                       # Application entry point
-│   ├── config.py                    # Configuration
+│   ├── run_tests.py                 # Test runner script
+│   ├── config.py                    # Configuration settings
+│   ├── init_db.py                   # Database initialization
 │   ├── requirements.txt             # Python dependencies
-│   └── API_DOCUMENTATION.md         # API reference
+│   ├── pytest.ini                   # Pytest configuration
+│   └── API_DOCUMENTATION.md         # API endpoint reference
 ├── database/
-│   └── SCHEMA.md                    # Database schema
+│   └── SCHEMA.md                    # Database schema documentation
+├── .env.example                     # Environment variables template
 ├── .gitignore
 ├── README.md
-├── setup.bat                        # Windows setup
-├── setup.sh                         # Linux/Mac setup
+├── QUICKSTART.md                    # Quick start guide
+├── CONTRIBUTING.md                  # Contribution guidelines
+├── IMPROVEMENTS.md                  # Planned improvements
+├── ROADMAP.md                       # Development roadmap
+├── LICENSE
+├── setup.bat                        # Windows setup script
+├── setup.sh                         # Linux/Mac setup script
+├── TEST_RESULTS.md                  # Latest test results
 └── digital_lost_found_web_app_technical_design_document.md
 ```
 
@@ -137,9 +157,10 @@ See [API_DOCUMENTATION.md](backend/API_DOCUMENTATION.md) for detailed endpoint r
 |-----------|-----------|
 | **Backend Framework** | Flask 2.3.3 |
 | **Database ORM** | SQLAlchemy |
-| **Database** | SQLite (dev), MySQL (production) |
+| **Database** | SQLite (development), MySQL (production-ready) |
 | **Authentication** | Token-based (secure token store) |
 | **Frontend** | HTML5, CSS3, Vanilla JavaScript |
+| **Design Theme** | Blue & White (Strathmore University colors) |
 | **File Upload** | Server-side file system |
 | **API Style** | RESTful JSON |
 
@@ -147,7 +168,9 @@ See [API_DOCUMENTATION.md](backend/API_DOCUMENTATION.md) for detailed endpoint r
 
 - **Token-Based Auth**: Secure token generation and validation
 - **Email Validation**: Only @strathmore.ac.ke emails allowed
-- **Password Hashing**: SHA-256 hashing for stored passwords
+- **Password Security**: SHA-256 hashing for stored passwords
+- **Role-Based Access Control**: Admin and User roles
+- **File Upload Validation**: Whitelist allowed file types
 - **CORS Support**: Cross-origin requests handled
 - **Role-Based Access**: Admin vs regular user permissions
 

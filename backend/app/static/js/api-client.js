@@ -8,20 +8,18 @@ const API_BASE_URL = '/api';
 
 class APIClient {
     constructor() {
-        this.token = localStorage.getItem('auth_token');
-    }
-
-    setToken(token) {
-        this.token = token;
-        localStorage.setItem('auth_token', token);
+        // Don't cache token - always get fresh from localStorage
     }
 
     getToken() {
-        return this.token;
+        return localStorage.getItem('auth_token');
+    }
+
+    setToken(token) {
+        localStorage.setItem('auth_token', token);
     }
 
     clearToken() {
-        this.token = null;
         localStorage.removeItem('auth_token');
     }
 
@@ -32,8 +30,9 @@ class APIClient {
             ...options.headers,
         };
 
-        if (this.token && options.method !== 'FormData') {
-            headers['Authorization'] = `Bearer ${this.token}`;
+        const token = this.getToken();
+        if (token && options.method !== 'FormData') {
+            headers['Authorization'] = `Bearer ${token}`;
         }
 
         try {
@@ -85,11 +84,12 @@ class APIClient {
     // Item endpoints
     async reportItem(formData) {
         const url = `${API_BASE_URL}/items/report`;
+        const token = this.getToken();
         try {
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {
-                    'Authorization': `Bearer ${this.token}`
+                    'Authorization': `Bearer ${token}`
                 },
                 body: formData
             });

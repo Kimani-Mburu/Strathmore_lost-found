@@ -106,8 +106,24 @@ def create_app(config_name='development'):
     def test_login_page():
         return send_from_directory(app.static_folder, 'test-login.html')
     
-    # Create database tables
+    # Create database tables and initialize default data
     with app.app_context():
         db.create_all()
+        
+        # Skip admin initialization during testing
+        if not os.getenv('SKIP_ADMIN_INIT'):
+            # Initialize default admin user if it doesn't exist
+            from app.models import User
+            admin = User.query.filter_by(email='admin@strathmore.ac.ke').first()
+            if not admin:
+                admin_user = User(
+                    name='Admin User',
+                    email='admin@strathmore.ac.ke',
+                    role='admin'
+                )
+                admin_user.set_password('Admin123')
+                db.session.add(admin_user)
+                db.session.commit()
+                print("✓ Admin user created: admin@strathmore.ac.ke")
     
     return app

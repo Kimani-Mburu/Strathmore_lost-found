@@ -22,10 +22,10 @@ def init_db():
                 email='admin@strathmore.ac.ke',
                 role='admin'
             )
-            admin.set_password('admin123')
+            admin.set_password('Admin123')
             db.session.add(admin)
             db.session.commit()
-            print("Admin user created: admin@strathmore.ac.ke / admin123")
+            print("Admin user created: admin@strathmore.ac.ke / Admin123")
         
         print("Database initialized successfully!")
 
