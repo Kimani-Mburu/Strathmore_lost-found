@@ -79,7 +79,7 @@ class TestAdminRoutes:
             
             assert response.status_code == 200
             data = response.get_json()
-            assert 'Claim rejected successfully' in data['message']
+            assert 'Claim rejected' in data['message']
 
     def test_add_claim_notes_success(self, client, admin_headers, test_claim):
         """Test adding notes to a claim as admin"""
@@ -91,7 +91,7 @@ class TestAdminRoutes:
         
         assert response.status_code == 200
         data = response.get_json()
-        assert 'Notes added successfully' in data['message']
+        assert 'Claim notes updated' in data['message']
 
     def test_approve_nonexistent_claim(self, client, admin_headers):
         """Test approving a non-existent claim"""
@@ -115,16 +115,25 @@ class TestAdminRoutes:
 
     def test_regular_user_cannot_access_admin(self, client, auth_headers):
         """Test that regular users cannot access admin endpoints"""
-        endpoints = [
+        # GET endpoints
+        get_endpoints = [
             '/api/admin/claims/pending',
-            '/api/admin/claims/all',
+            '/api/admin/claims/all'
+        ]
+        
+        for endpoint in get_endpoints:
+            response = client.get(endpoint, headers=auth_headers)
+            assert response.status_code == 403, f"GET {endpoint} should return 403"
+        
+        # PUT endpoints
+        put_endpoints = [
             '/api/admin/claims/1/approve',
             '/api/admin/claims/1/reject'
         ]
         
-        for endpoint in endpoints:
-            response = client.get(endpoint, headers=auth_headers)
-            assert response.status_code == 403
+        for endpoint in put_endpoints:
+            response = client.put(endpoint, headers=auth_headers)
+            assert response.status_code == 403, f"PUT {endpoint} should return 403"
 
     def test_claim_approval_updates_item_status(self, client, admin_headers, app, test_item, test_user):
         """Test that approving a claim updates the item status"""

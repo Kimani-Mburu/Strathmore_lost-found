@@ -48,7 +48,7 @@ class TestAuthRoutes:
         assert response.status_code == 400
         data = response.get_json()
         assert 'error' in data
-        assert 'already exists' in data['error']
+        assert 'Email already registered' in data['error']
 
     def test_register_missing_fields(self, client):
         """Test registration with missing required fields"""
@@ -85,7 +85,7 @@ class TestAuthRoutes:
         assert response.status_code == 401
         data = response.get_json()
         assert 'error' in data
-        assert 'Invalid credentials' in data['error']
+        assert 'Invalid email or password' in data['error']
 
     def test_login_nonexistent_user(self, client):
         """Test login with non-existent user"""
